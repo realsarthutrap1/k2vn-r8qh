@@ -23,6 +23,9 @@ int main() {
 
     cout << "Day 1 AQI: " << aqi.at(0) << endl;
     cout << "Day 15 AQI: " << aqi.at(14) << endl;
+    cout << "front: " << aqi.front() << endl;
+    cout << "back: " << aqi.back() << endl;
+    cout << "dbg first=" << *aqi.data() << endl;
 
     return 0;
 }
