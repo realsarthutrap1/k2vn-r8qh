@@ -11,9 +11,18 @@ int main() {
     array<int, DAYS> aqi{};
 
     ifstream in("aqi.txt");
-    for (int i = 0; i < DAYS; i++) {
-        in >> aqi[i];
+    if (!in) {
+        cout << "Could not open aqi.txt" << endl;
+        return 1;
     }
+
+    for (int i = 0; i < DAYS; i++) {
+        in >> aqi.at(i);
+    }
+    in.close();
+
+    cout << "Day 1 AQI: " << aqi.at(0) << endl;
+    cout << "Day 15 AQI: " << aqi.at(14) << endl;
 
     return 0;
 }
