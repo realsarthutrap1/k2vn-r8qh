@@ -21,11 +21,35 @@ int main() {
     }
     in.close();
 
-    cout << "Day 1 AQI: " << aqi.at(0) << endl;
-    cout << "Day 15 AQI: " << aqi.at(14) << endl;
+    cout << "San Ramon AQI using std::array" << endl;
+    cout << "size: " << aqi.size() << endl;
+    cout << "max_size: " << aqi.max_size() << endl;
+    cout << "empty: " << aqi.empty() << endl;
     cout << "front: " << aqi.front() << endl;
     cout << "back: " << aqi.back() << endl;
-    cout << "dbg first=" << *aqi.data() << endl;
+
+    int minV = aqi.front();
+    int maxV = aqi.front();
+    int sum = 0;
+    int unhealthy = 0;
+    for (int i = 0; i < static_cast<int>(aqi.size()); i++) {
+        int v = aqi[i];
+        sum += v;
+        if (v < minV) {
+            minV = v;
+        }
+        if (v > maxV) {
+            maxV = v;
+        }
+        if (v > 100) {
+            unhealthy++;
+        }
+    }
+
+    cout << "min: " << minV << endl;
+    cout << "max: " << maxV << endl;
+    cout << "avg: " << (sum / static_cast<int>(aqi.size())) << endl;
+    cout << "days over 100 AQI: " << unhealthy << endl;
 
     return 0;
 }
