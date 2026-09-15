@@ -3,9 +3,11 @@
 #include <array>
 using namespace std;
 
-const int DAYS = 31
+const int DAYS = 31;
 
 int main() {
     // San Ramon CA daily AQI, 31 days
+    array<int, DAYS> aqi{};
+
     return 0;
 }
