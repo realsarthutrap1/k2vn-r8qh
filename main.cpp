@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <array>
+#include <vector>
 using namespace std;
 
 const int DAYS = 31;
@@ -56,6 +57,19 @@ int main() {
     cout << "after fill, front: " << aqi.front() << endl;
     aqi.swap(backup);
     cout << "after swap, front: " << aqi.front() << endl;
+
+    cout << endl << "San Ramon AQI using std::vector" << endl;
+    vector<int> aqiVec;
+    ifstream in2("aqi.txt");
+    int val;
+    while (in2 >> val) {
+        aqiVec.push_back(val);
+    }
+    in2.close();
+
+    cout << "vector size: " << aqiVec.size() << endl;
+    cout << "vector front: " << aqiVec.front() << endl;
+    cout << "vector back: " << aqiVec.back() << endl;
 
     return 0;
 }
