@@ -51,5 +51,11 @@ int main() {
     cout << "avg: " << (sum / static_cast<int>(aqi.size())) << endl;
     cout << "days over 100 AQI: " << unhealthy << endl;
 
+    array<int, DAYS> backup = aqi;
+    aqi.fill(0);
+    cout << "after fill, front: " << aqi.front() << endl;
+    aqi.swap(backup);
+    cout << "after swap, front: " << aqi.front() << endl;
+
     return 0;
 }
