@@ -60,6 +60,7 @@ int main() {
 
     cout << endl << "San Ramon AQI using std::vector" << endl;
     vector<int> aqiVec;
+    aqiVec.reserve(DAYS);
     ifstream in2("aqi.txt");
     int val;
     while (in2 >> val) {
@@ -68,8 +69,28 @@ int main() {
     in2.close();
 
     cout << "vector size: " << aqiVec.size() << endl;
+    cout << "vector capacity: " << aqiVec.capacity() << endl;
+    cout << "vector empty: " << aqiVec.empty() << endl;
     cout << "vector front: " << aqiVec.front() << endl;
     cout << "vector back: " << aqiVec.back() << endl;
+    cout << "vector at(14): " << aqiVec.at(14) << endl;
+
+    int vSum = 0;
+    int vMax = aqiVec.front();
+    for (int i = 0; i < static_cast<int>(aqiVec.size()); i++) {
+        vSum += aqiVec[i];
+        if (aqiVec[i] > vMax) {
+            vMax = aqiVec[i];
+        }
+    }
+    cout << "vector max: " << vMax << endl;
+    cout << "vector avg: " << (vSum / static_cast<int>(aqiVec.size())) << endl;
+
+    aqiVec.pop_back();
+    cout << "after pop_back, size: " << aqiVec.size() << endl;
 
     return 0;
 }
+
+// array half uses size, max_size, empty, at, [], front, back, fill, swap, data via front
+// vector half uses reserve, push_back, size, capacity, empty, front, back, at, pop_back
